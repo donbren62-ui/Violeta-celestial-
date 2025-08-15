@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Violeta Celestial - Loja Mágica</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Partículas mágicas */
+#magicParticles {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index: 0;
+}
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: gold;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: floatUp linear infinite;
+}
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity:0.7;}
+  50% { opacity:1; transform: translateY(-50px) scale(1.2);}
+  100% { transform: translateY(-200px) scale(0.8); opacity:0;}
+}
+/* Produtos flutuantes */
+.product, .course, .affiliate {
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+.product:hover, .course:hover, .affiliate:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 30px gold;
+}
+/* Sigilo discreto */
+body::after {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  background: url('images/sigilo.png') no-repeat center center;
+  background-size: contain;
+  opacity: 0.1;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+</style>
+</head>
+<body>
+<div id="magicParticles"></div>
+
+<header>
+    <h1>Violeta Celestial</h1>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Loja</a></li>
+            <li><a href="#courses">Cursos & Mentoria</a></li>
+            <li><a href="#affiliates">Rede Celestial</a></li>
+            <li><a href="#contact">Contato</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="banner" id="home">
+    <h2>Onde Magia e Prosperidade se Encontram</h2>
+    <p>Descubra artefatos místicos, cursos sagrados e mentoria direta com o Lorde Zankai. Entre para a Rede Celestial e transforme sua vida.</p>
+</section>
+
+<section class="products" id="products">
+    <h2 class="section-title">Produtos Místicos</h2>
+    <div class="product">
+        <img src="images/taro.jpg" alt="Tarô de Zankai">
+        <h3>Tarô de Zankai</h3>
+        <p>Baralho exclusivo para leituras profundas, energizado pelo Lorde Zankai.</p>
+        <button>Comprar</button>
+    </div>
+    <div class="product">
+        <img src="images/amuletos.jpg" alt="Amuletos Energizados">
+        <h3>Amuletos Energizados</h3>
+        <p>Proteção e prosperidade em amuletos preparados sob a luz da lua.</p>
+        <button>Comprar</button>
+    </div>
+    <div class="product">
+        <img src="images/rituais.jpg" alt="Materiais para Rituais">
+        <h3>Materiais para Rituais</h3>
+        <p>Velas, ervas e pós mágicos prontos para suas práticas espirituais.</p>
+        <button>Comprar</button>
+    </div>
+</section>
+
+<section class="courses" id="courses">
+    <h2 class="section-title">Cursos & Mentoria</h2>
+    <div class="course">
+        <img src="images/tarot-course.jpg" alt="Curso de Tarot">
+        <h3>Curso de Tarot</h3>
+        <p>Aprenda tarot com profundidade, conduzido pelo Lorde Zankai.</p>
+        <button>Inscrever-se</button>
+    </div>
+    <div class="course">
+        <img src="images/mentoria.jpg" alt="Mentoria Espiritual">
+        <h3>Mentoria Espiritual</h3>
+        <p>Mentoria personalizada para evolução espiritual e prática mágica.</p>
+        <button>Participar</button>
+    </div>
+</section>
+
+<section class="affiliates" id="affiliates">
+    <h2 class="section-title">Rede Celestial</h2>
+    <div class="affiliate">
+        <p>Ganhe comissões ao compartilhar e vender produtos da Violeta Celestial.</p>
+        <p>1º nível: 10% | 2º nível: 5% | Bônus trimestral para melhores vendedores.</p>
+        <div class="login-form">
+            <input type="text" placeholder="Seu nome">
+            <input type="email" placeholder="Seu e-mail">
+            <button>Inscrever-se na Rede</button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    &copy; 2025 Violeta Celestial - Todos os direitos reservados | Criado por Lorde Zankai
+</footer>
+
+<script>
+// Gerar partículas mágicas
+const container = document.getElementById('magicParticles');
+for(let i=0;i<50;i++){
+  let particle = document.createElement('div');
+  particle.className = 'particle';
+  particle.style.left = Math.random()*100+'%';
+  particle.style.top = Math.random()*100+'%';
+  particle.style.animationDuration = (3 + Math.random()*5)+'s';
+  particle.style.width = particle.style.height = (5 + Math.random()*5)+'px';
+  container.appendChild(particle);
+}
+</script>
+
+</body>
+</html>
